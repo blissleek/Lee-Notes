@@ -1,7 +1,7 @@
 <img width="220px" src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/other/LogoMakr_0zpEzN.png">
 
 
-- Life-long learning
+- For you, a thousand times over.
 
 <!--<span id="busuanzi_container_site_pv">Site View : <span id="busuanzi_value_site_pv">-->
 
