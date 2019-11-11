@@ -1,8 +1,16 @@
 ## ☕️ Java
 
-- [Java 基础](Notes/java基础.md)
+- [Java 基础](Notes/Java基础.md)
 
 
-## :penguin:  Linux
 
-- [Linux-vim](Notes/Vim.md)
+##  💻 Operating System
+
+- [Linux](Notes/Linux.md)
+
+
+
+## 💾 Database
+
+- [Redis](Notes/Redis.md)
+
