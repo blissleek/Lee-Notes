@@ -1,4 +1,4 @@
-<img width="100%" height="100%" src="_media/images/cover.jpg">
+<img width="100px"  src="_media/images/favicon.jpg">
 
 - For you, a thousand times over.
 
@@ -7,3 +7,8 @@
 [Github](https://github.com/blissleek/Lee-Notes/)
 [Getting Started](README.md)
 
+
+
+ <!-- 背景图片 --> 
+
+ ![](_media/images/cover.jpg) 
