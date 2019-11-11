@@ -1,4 +1,4 @@
-<img width="80px" src="_media/images/cover.jpeg">
+<img width="80px" src="_media/images/coverjpeg">
 
 - For you, a thousand times over.
 
