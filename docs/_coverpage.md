@@ -1,4 +1,4 @@
-<img width="100%" src="_media/images/cover.jpg">
+<img width="400px" src="_media/images/cover.jpg">
 
 - For you, a thousand times over.
 
@@ -12,4 +12,3 @@
  <!-- 背景图片 --> 
 
 <!-- ![](_media/images/.jpg) --> 
-
