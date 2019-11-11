@@ -1,6 +1,6 @@
 ## ☕️ Java
 
-- [Java基础](Notes/Java-basic.md)
+- [Java 基础](Notes/Java%20基础.md)
 
 
 
