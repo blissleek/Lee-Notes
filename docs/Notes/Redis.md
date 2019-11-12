@@ -22,27 +22,137 @@ Redis 支持很多特性，例如将内存中的数据持久化到硬盘中，�
 
 ### STRING
 
+```html
+127.0.0.1:6379> set hello world   # 将键 hello 的值设为 world
+OK
+127.0.0.1:6379> get hello         # 获取存储在键 hello 中的值
+"world"
+127.0.0.1:6379> del hello         # 删除键为 hello 的键值对	
+(integer) 1
+127.0.0.1:6379> get hello
+(nil)
+```
 
-
-|     添加      |  获取   |  删除   | 修改 |
-| :-----------: | :-----: | :-----: | :--: |
-| set key value | get key | del key |      |
 
 
 
 ### LIST
 
-| 添加                                                         | 获取                   | 删除                                           | 修改 |
-| ------------------------------------------------------------ | :--------------------- | :--------------------------------------------- | :--- |
-| lpush key value（左端插入）<br />rpush key value（右端插入） | lindex key index<br /> | lpop key（左端弹出）<br />rpop key（右端弹出） |      |
-
-### HASH
+```html
+127.0.0.1:6379> rpush list-key 2       # rpush 和 lpush  分别将元素推入列表的左端和右端，返回当前列表的长度
+(integer) 1
+127.0.0.1:6379> lpush list-key 1
+(integer) 2
+127.0.0.1:6379> rpush list-key 3
+(integer) 3
+127.0.0.1:6379> lrange list-key 0 -1   #  lrange 获取指定范围上的所有值，0 为开始索引， -1 为列表尾部索引
+1) "1"
+2) "2"
+3) "3"
+127.0.0.1:6379> lindex list-key 0      #  lindex 获取列表指定位置的元素
+"1"
+127.0.0.1:6379> rpop list-key          #  lpop 和 rpop 分别从列表的左端和右端弹出元素，返回被弹出的值
+"3"
+127.0.0.1:6379> lpop list-key
+"1"
+127.0.0.1:6379> lrange list-key 0 -1
+1) "2"
+```
 
 
 
 ### SET
 
 
+```html
+127.0.0.1:6379> sadd set-key item1    # sadd 将给定元素添加到集合，返回1表示成功，返回0表示元素已存在集合中
+(integer) 1
+127.0.0.1:6379> sadd set-key item2
+(integer) 1
+127.0.0.1:6379> sadd set-key item3
+(integer) 1
+127.0.0.1:6379> sadd set-key item1
+(integer) 0
+127.0.0.1:6379> smembers set-key         #  smembers 返回集合中的所有元素
+1) "item3"
+2) "item2"
+3) "item1"
+127.0.0.1:6379> sismember set-key item4  #  sismember 检查给定元素是否存在于集合中
+(integer) 0
+127.0.0.1:6379> sismember set-key item1
+(integer) 1
+127.0.0.1:6379> srem set-key item3       #  srem 如果给定元素存在于集合中，那么移除这个元素
+(integer) 1
+127.0.0.1:6379> smembers set-key
+1) "item2"
+2) "item1"
+```
+
+
+
+### HASH
+
+
+```html
+127.0.0.1:6379> hset hash-key sub-key1 sub-value1  #  hset 在散列里面关联给定的键值对
+(integer) 1
+127.0.0.1:6379> hset hash-key sub-key2 sub-value2
+(integer) 1
+127.0.0.1:6379> hset hash-key sub-key1 sub-value1
+(integer) 0
+127.0.0.1:6379> hgetall hash-key                   #  hgetall 获取散列里包含的所有键值对
+1) "sub-key1"
+2) "sub-value1"
+3) "sub-key2"
+4) "sub-value2"
+127.0.0.1:6379> hdel hash-key sub-key2             #  hdel 如果给定的键存在于散列中，那么移除这个键
+(integer) 1
+127.0.0.1:6379> hdel hash-key sub-key2
+(integer) 0
+127.0.0.1:6379> hget hash-key sub-key1             #  hget 获取指定散列键的值
+"sub-value1"
+127.0.0.1:6379> hgetall hash-key
+1) "sub-key1"
+2) "sub-value1"
+```
+
+
 
 ### ZSET
+
+```html
+127.0.0.1:6379> zadd zset-key 99 member1      # zadd 将一个带有给定分值(score)的成员(member)添加到有序集合
+(integer) 1
+127.0.0.1:6379> zadd zset-key 999 member2
+(integer) 1
+127.0.0.1:6379> zadd zset-key 9999 member3
+(integer) 1
+127.0.0.1:6379> zadd zset-key 9999 member3
+(integer) 0 
+127.0.0.1:6379> zrange zset-key 0 -1         # zrange 根据元素在有序集合中所处的位置，从中获取多个元素
+1) "member1"
+2) "member2"
+3) "member3"
+127.0.0.1:6379> zrange zset-key 0 -1  withscores
+1) "member1"
+2) "99"
+3) "member2"
+4) "999"
+5) "member3"
+6) "9999"
+127.0.0.1:6379> zrangebyscore zset-key 99 999 withscores  # 获取有序集合在给定分值范围内的所有元素
+1) "member1"
+2) "99"
+3) "member2"
+4) "999"
+127.0.0.1:6379> zrem zset-key member3   # zrem 如果给定成员存在于有序集合中，那么移除这个成员
+(integer) 1
+127.0.0.1:6379> zrem zset-key member3
+(integer) 0
+127.0.0.1:6379> zrange zset-key 0 -1 withscores
+1) "member1"
+2) "99"
+3) "member2"
+4) "999"
+```
 
