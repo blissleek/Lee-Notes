@@ -1,4 +1,4 @@
-## ☕️ Java
+##  ☕️ Java
 
 - [Java 基础](Notes/Java%20基础.md)
 
@@ -14,4 +14,3 @@
 ## 💾 Database
 
 - [Redis](Notes/Redis.md)
-
