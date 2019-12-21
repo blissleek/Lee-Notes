@@ -41,7 +41,7 @@ OK
 
 ### LIST
 
-<img src="../_media/images/redis/redis-list.png" alt="string" style="zoom: 50%;" />
+<img src="../_media/images/redis/redis-list.png" alt="list" style="zoom: 50%;" />
 
 ```html
 127.0.0.1:6379> rpush list-key 2       # rpush 和 lpush  分别将元素推入列表的左端和右端，返回当前列表的长度
@@ -68,7 +68,7 @@ OK
 
 ### SET
 
-<img src="../_media/images/redis/redis-set.png" alt="string" style="zoom: 50%;" />
+<img src="../_media/images/redis/redis-set.png" alt="set" style="zoom: 50%;" />
 
 
 ```html
@@ -99,7 +99,7 @@ OK
 
 ### HASH
 
-<img src="../_media/images/redis/redis-hash.png" alt="string" style="zoom: 50%;" />
+<img src="../_media/images/redis/redis-hash.png" alt="hash" style="zoom: 50%;" />
 
 
 ```html
@@ -129,7 +129,7 @@ OK
 
 ### ZSET
 
-<img src="../_media/images/redis/redis-zset.png" alt="string" style="zoom: 50%;" />
+<img src="../_media/images/redis/redis-zset.png" alt="zset" style="zoom: 50%;" />
 
 ```html
 127.0.0.1:6379> zadd zset-key 99 member1      # zadd 将一个带有给定分值(score)的成员(member)添加到有序集合
@@ -189,7 +189,7 @@ struct sdshdr {
 }
 ```
 
-
+<img src="../_media/images/redis/redis-string-sds.png" alt="string"  />
 
 #### SDS 与 C 字符串的区别
 
